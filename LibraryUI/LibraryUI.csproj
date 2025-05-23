@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <COMReference Include="{d37e2a3e-8545-3a39-9f4f-31827c9124ab}">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>4</VersionMinor>
+      <VersionMajor>2</VersionMajor>
+      <Guid>d37e2a3e-8545-3a39-9f4f-31827c9124ab</Guid>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LibraryData\LibraryData.csproj" />
+    <ProjectReference Include="..\LibraryModel\LibraryModel.csproj" />
+    <ProjectReference Include="..\LibraryUtility\LibraryUtility.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="RdButton">
+      <HintPath>E:\Library -0126\RdButton\bin\Debug\net9.0-windows\RdButton.dll</HintPath>
+    </Reference>
+    <Reference Include="RndButtom">
+      <HintPath>..\..\RndButtom\RndButtom\bin\Debug\net9.0-windows\RndButtom.dll</HintPath>
+    </Reference>
+    <Reference Include="RndButton">
+      <HintPath>E:\Library -0126\RndButton\bin\Debug\RndButton.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
