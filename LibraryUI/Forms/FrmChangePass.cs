@@ -26,10 +26,10 @@ namespace LibraryUI.Forms
         private void btnChangePass_Click(object sender, EventArgs e)
         {
             // try-catch نباشد؟
-            (txtNewPassword.Text).CheckPasswordStrength();
+        //    (txtNewPassword.Text).CheckPasswordStrength();
             if (txtNewPassword.Text != txtConfirmPassword.Text)
             {
-                //RtlMessageBox.Show("رمز با تکرار رمز برابر نیست", "توجه");
+                RtlMessageBox.Show("رمز با تکرار رمز برابر نیست", "توجه");
             }
             else
             {
@@ -40,7 +40,7 @@ namespace LibraryUI.Forms
                 var user = db.GetAll().FirstOrDefault(r => r.UserName.Trim().ToLower() == txtUserName.Text.Trim().ToLower());
                 if (user == null)
                 {
-                    MessageBox.Show("نام کاربری یا رمز عبور اشتباه است", "خطا");
+                    RtlMessageBox.Show("نام کاربری یا رمز عبور اشتباه است", "خطا");
 
                 }
                 else
@@ -48,7 +48,7 @@ namespace LibraryUI.Forms
                     user.UserName = txtUserName.Text;
                     user.Password = txtNewPassword.Text;
                     db.Save();
-                    //RtlMessageBox.Show("رمز با موفقیت تغییر کرد");
+                    RtlMessageBox.Show("رمز با موفقیت تغییر کرد");
                     Close();
                 }
 
@@ -67,7 +67,6 @@ namespace LibraryUI.Forms
             txtUserName.Text = UserName;
             //Design.AnimateWindow(this.Handle, 1000, Design.HOR_NEGATIVE);
         }
-
         private void cbxShowPass_CheckStateChanged(object sender, EventArgs e)
         {
 

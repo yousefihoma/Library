@@ -50,7 +50,7 @@ namespace LibraryUI.Forms
                 MemberRepository memberRepository = new MemberRepository(new LibraryContext());
 
                 string name = dgvMembers.CurrentRow.Cells[1].Value.ToString();
-                if (MessageBox.Show($"آیا از حذف {name} مطمئن هستید ؟", "توجه", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                if (RtlMessageBox.Show($"آیا از حذف {name} مطمئن هستید ؟", "توجه",MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     int memberId = int.Parse(dgvMembers.CurrentRow.Cells[0].Value.ToString());
                     memberRepository.Delete(memberId);
@@ -61,7 +61,7 @@ namespace LibraryUI.Forms
             }
             else
             {
-                //   RtlMessageBox.Show("لطفا شخصی را انتخاب کنید");
+                   RtlMessageBox.Show("لطفا شخصی را انتخاب کنید");
             }
 
         }

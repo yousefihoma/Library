@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
+﻿using System.Net.Sockets;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Globalization;
-//using System.Windows.Forms;
+using System.Windows.Forms;
 
-namespace LibraryUtility
+
+namespace LibraryUtility.Tools
 {
-
     public static class Tools
     {
         //تاریخ شمسی
@@ -126,25 +121,6 @@ namespace LibraryUtility
             }
         }
 
-
-        //private static void TxtDigit(object sender, KeyPressEventArgs e)
-        //{
-        //    //فقط عدد وارد شود 
-        //    if (!char.IsDigit(e.KeyChar))
-        //    {
-        //        e.Handled = true;
-        //    }
-        //}
-        //private static void TxtPersian(object sender, KeyPressEventArgs e)
-        //{
-        //    // فقط فارسی وارد شود
-        //    if (e.KeyChar >= 97 && e.KeyChar <= 122)
-        //    {
-        //        e.Handled = true;
-        //    }
-        //}
-
-
         //این متد اعداد را در هر صورت، فارسی نمایش می دهد
         public static string GetPersianNumber(string englishNumber)
         {
@@ -163,5 +139,53 @@ namespace LibraryUtility
         //    dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
         //}
-    }
+        public static void txtProvider_Leave(TextBox txtProvider, ErrorProvider errorProvider1)
+        {
+            if (string.IsNullOrEmpty(txtProvider.Text))
+            {
+                errorProvider1.SetError(txtProvider, "اجباری بودن متن");
+            }
+            else
+            {
+                errorProvider1.SetError(txtProvider, "");
+            }
+        }
+
+        public static void TxtDigitKeyPress(object sender, KeyPressEventArgs e)
+        {
+            //فقط عدد وارد شود. MaxLenght طول هم محدود شده
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        public static void TxtPersian(this KeyPressEventArgs e)
+        {
+            // فقط فارسی وارد شود
+            if (e.KeyChar >= 97 && e.KeyChar <= 122)
+            {
+                e.Handled = true;
+            }
+        }
+
+        public static void ShowNotificationInfo(string title, string msg)
+        {
+            NotifyIcon notifyIcon = new NotifyIcon();
+            notifyIcon.Icon = SystemIcons.Information; // Set an icon
+            notifyIcon.Visible = true;
+            notifyIcon.ShowBalloonTip(2000, title, msg, ToolTipIcon.Info);
+            // Dispose the NotifyIcon when it's no longer needed
+            notifyIcon.Dispose();
+        }
+
+
+    //    public static void (Control control){
+    //    this.Alert("Success", frmAlert.enmType.Success);
+    //        this.Alert("Info", frmAlert.enmType.Info); 
+    //}
+
+
+
+}
 }

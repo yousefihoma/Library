@@ -49,6 +49,7 @@
             lblMinimize = new Label();
             pictureBox1 = new PictureBox();
             btnMembers = new Button();
+            textBox1 = new TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -284,11 +285,19 @@
             btnMembers.UseVisualStyleBackColor = true;
             btnMembers.Click += btnMembers_Click;
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(335, 93);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 22);
+            textBox1.TabIndex = 5;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 14F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(759, 417);
+            Controls.Add(textBox1);
             Controls.Add(btnMembers);
             Controls.Add(panel2);
             Controls.Add(pictureBox1);
@@ -305,6 +314,7 @@
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -329,5 +339,6 @@
         private Label lblFine;
         private Label label9;
         private Button btnMembers;
+        private TextBox textBox1;
     }
 }

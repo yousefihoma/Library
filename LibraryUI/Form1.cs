@@ -3,6 +3,10 @@ using LibraryModel;
 using LibraryData.Services;
 using LibraryModel.Entities;
 using LibraryUI.Forms;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
+using LibraryUtility;
+using LibraryUtility.Tools;
 
 namespace LibraryUI
 {
@@ -12,14 +16,11 @@ namespace LibraryUI
         {
             InitializeComponent();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
+    
+       private void Form1_Load(object sender, EventArgs e)
         {
-            int v = 10000000;
-            lblAboutUs.Text = v.ToString("#,0");
-
+        
         }
-
 
         private void lblMinimize_Click(object sender, EventArgs e)
         {
@@ -52,8 +53,9 @@ namespace LibraryUI
 
         private void btnMembers_Click(object sender, EventArgs e)
         {
-            FrmMembers frmMembers = new FrmMembers();
-            frmMembers.ShowDialog();
+            ShowNotificationInfo("bhj", "fgh");
+            //FrmMembers frmMembers = new FrmMembers();
+            //frmMembers.ShowDialog();
         }
 
         private void lblHistory_Click(object sender, EventArgs e)

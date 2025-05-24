@@ -1,5 +1,6 @@
 ﻿using LibraryData.Services;
 using LibraryModel;
+using LibraryUtility.Tools;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +32,7 @@ namespace LibraryUI.Forms
         {
             if ((string.IsNullOrEmpty(txtUserName.Text)) && (string.IsNullOrEmpty(txtPassword.Text)))
             {
-                MessageBox.Show("لطفا نام کاربری و رمز عبور را وارد کنید");
+                RtlMessageBox.Show("لطفا نام کاربری و رمز عبور را وارد کنید");
             }
 
              
@@ -46,7 +47,7 @@ namespace LibraryUI.Forms
             }
             else
             {
-                MessageBox.Show("نام کاربری یا رمز عبور اشتباه است", "خطا");
+                RtlMessageBox.Show("نام کاربری یا رمز عبور اشتباه است", "خطا");
             }
         }
 
@@ -54,7 +55,7 @@ namespace LibraryUI.Forms
         {
             if ((string.IsNullOrEmpty(txtUserName.Text)) || (string.IsNullOrWhiteSpace(txtUserName.Text)))
             {
-                MessageBox.Show("لطفا نام کاربری را وارد کنید", "توجه");
+                RtlMessageBox.Show("لطفا نام کاربری را وارد کنید", "توجه");
             }
              else
             // {  // کد تکراری
@@ -83,8 +84,8 @@ namespace LibraryUI.Forms
         private void FrmLogin_Load(object sender, EventArgs e)
         {
             string UserName = Environment.UserName;
-            //  string IP = Tools.GetLocalIP();
-            //lblUserAndIP.Text = $"PC Name: {UserName}  IP: {IP}  ";
+          string IP = Tools.GetLocalIP();
+             lblUserAndIP.Text = $"PC Name: {UserName}  IP: {IP}  ";
         }
     }
 }
